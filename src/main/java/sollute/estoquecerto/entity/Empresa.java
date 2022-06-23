@@ -15,7 +15,7 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEmpresa;
 
-    @Email(message = "Insira um e-mail válido")
+    @Email(message = "Insira um e-mail valido")
     @Column(name = "email")
     private String email;
 

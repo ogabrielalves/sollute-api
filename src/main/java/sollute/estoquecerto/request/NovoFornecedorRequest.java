@@ -22,4 +22,5 @@ public class NovoFornecedorRequest {
     public Integer getQtdFornecida() {
         return qtdFornecida;
     }
+
 }

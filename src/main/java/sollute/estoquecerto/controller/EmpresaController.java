@@ -5,25 +5,16 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import sollute.estoquecerto.entity.*;
 import sollute.estoquecerto.repository.*;
 import sollute.estoquecerto.request.*;
 
-import javax.print.attribute.standard.Media;
 import javax.validation.Valid;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Optional;
 
 import static org.springframework.http.ResponseEntity.*;
 
@@ -36,23 +27,6 @@ public class EmpresaController {
 
     @Autowired
     private ProdutoRepository produtoRepository;
-
-    @Autowired
-    private CaixaRepository repositoryCaixa;
-
-    @Autowired
-    private CarrinhoRepository carrinhoRepository;
-
-    @Autowired
-    private ClienteRepository clienteRepository;
-
-    @Autowired
-    private FornecedorRepository fornecedorRepository;
-
-    @Autowired
-    private FuncionarioRepository funcionarioRepository;
-
-    // ------------------------------------------------------------------------------------------ //
 
     @PostMapping("/cria-empresa")
     public ResponseEntity<ResponseEntity.BodyBuilder> criaEmpresa(@RequestBody @Valid Empresa createEmpresaResponse) {
@@ -95,12 +69,6 @@ public class EmpresaController {
 
         return status(HttpStatus.OK).body(listaEmpresas);
     }
-
-    // ------------------------------------------------------------------------------------------ //
-
-
-
-    // ------------------------------------------------------------------------------------------ //
 
     @GetMapping("/calcular-produtos-vendidos/{fkEmpresa}")
     public ResponseEntity<Integer> calcularProdutosVendidos(@PathVariable Integer fkEmpresa) {
@@ -156,8 +124,6 @@ public class EmpresaController {
         return status(404).build();
     }
 
-    // ------------------------------------------------------------------------------------------ //
-
     @ApiResponses({
             @ApiResponse(responseCode = "200",
                     content = @Content(mediaType = "text/csv"))
@@ -202,19 +168,18 @@ public class EmpresaController {
             return status(404).build();
         }
         return status(200).build();
-
     }
 
     @GetMapping(value = "/txt/{cnpj}", produces = "file/txt")
     public ResponseEntity<byte[]> getFoto(@PathVariable String cnpj) {
 
         byte[] foto = empresaRepository.getFoto(cnpj);
+
         if (foto == null) {
             return status(404).build();
         }
+
         return status(200).body(foto);
-
     }
-
 
 }

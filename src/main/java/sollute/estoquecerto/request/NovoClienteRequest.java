@@ -12,4 +12,5 @@ public class NovoClienteRequest {
     public String getTelefoneCliente() {
         return telefoneCliente;
     }
+
 }

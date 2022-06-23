@@ -78,4 +78,5 @@ public class CaixaController {
 
         return status(HttpStatus.BAD_REQUEST).build();
     }
+
 }

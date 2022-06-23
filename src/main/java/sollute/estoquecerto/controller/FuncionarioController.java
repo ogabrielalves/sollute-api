@@ -94,4 +94,5 @@ public class FuncionarioController {
 
         return status(HttpStatus.NOT_FOUND).build();
     }
+
 }

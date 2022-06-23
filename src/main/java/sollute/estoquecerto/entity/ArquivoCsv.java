@@ -59,7 +59,7 @@ public class ArquivoCsv {
         }
     }
 
-    public static void leExibeArquivoCsv (String nomeArq) {
+    public static void leExibeArquivoCsv(String nomeArq) {
 
         FileReader arq = null;
         Scanner entrada = null;
@@ -70,7 +70,7 @@ public class ArquivoCsv {
             arq = new FileReader(nomeArq);
             entrada = new Scanner(arq).useDelimiter(";|\\n");
         } catch (FileNotFoundException erro) {
-            System.out.println("Arquivo não encontrado");
+            System.out.println("Arquivo nao encontrado");
             System.exit(1);
         }
 

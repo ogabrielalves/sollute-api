@@ -97,33 +97,33 @@ public class ArquivoTxt {
 
                     case "00":
 
-                        System.out.println("É um registro de Header");
+                        System.out.println("Eh um registro de Header");
                         System.out.println("Tipo de arquivo: " + registro.substring(2, 10));
-                        System.out.println("Data e hora da gravação: " + registro.substring(10, 29));
-                        System.out.println("Versão do documento: " + registro.substring(29, 31));
+                        System.out.println("Data e hora da gravacao: " + registro.substring(10, 29));
+                        System.out.println("Versao do documento: " + registro.substring(29, 31));
                         break;
 
                     case "01":
 
-                        System.out.println("É um registro de Trailer");
+                        System.out.println("Eh um registro de Trailer");
                         qtdRegCorpoGravado = Integer.parseInt(registro.substring(2, 3));
 
                         if (contaRegCorpoLido == qtdRegCorpoGravado) {
                             System.out.println(
-                                    "\nQuantidade de registros lidos é compativel com a quantidade de registros gravados");
+                                    "\nQuantidade de registros lidos eh compativel com a quantidade de registros gravados");
                             registro = null;
                         } else {
                             System.out.println(contaRegCorpoLido);
                             System.out.println(qtdRegCorpoGravado);
                             System.out.println(
-                                    "Quantidade de registros lidos não é compativel com a quantidade de registros gravados.");
+                                    "Quantidade de registros lidos nao eh compativel com a quantidade de registros gravados.");
                         }
                         break;
 
                     case "02":
 
                         contaRegCorpoLido++;
-                        System.out.println("É um registro do corpo.");
+                        System.out.println("Eh um registro do corpo.");
                         idProduto = Integer.valueOf(registro.substring(2, 4));
                         codigo = registro.substring(4, 9).trim();
                         nome = registro.substring(9, 39).trim();
@@ -160,7 +160,7 @@ public class ArquivoTxt {
                         break;
 
                     default:
-                        System.out.println("Tipo de registro inválido");
+                        System.out.println("Tipo de registro invalido");
                         break;
                 }
                 registro = entrada.readLine();

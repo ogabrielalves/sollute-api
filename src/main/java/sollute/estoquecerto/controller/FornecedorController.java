@@ -94,4 +94,5 @@ public class FornecedorController {
 
         return status(HttpStatus.NOT_FOUND).build();
     }
+
 }

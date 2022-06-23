@@ -27,4 +27,5 @@ public class NovoProdutoRequest {
     public Double getPrecoVenda() {
         return precoVenda;
     }
+
 }

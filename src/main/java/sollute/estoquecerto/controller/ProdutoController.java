@@ -70,27 +70,26 @@ public class ProdutoController {
 
         if (lista.isEmpty()) return status(HttpStatus.BAD_REQUEST).build();
 
-        for (Produto p : lista) {
-            if (produtoRepository.existsByCodigo(codigo)) {
+        if (produtoRepository.existsByCodigo(codigo)) {
 
-                Integer estoque = novoProdutoRequest.getEstoque();
-                Integer estoqueMin = novoProdutoRequest.getEstoqueMin();
-                Integer estoqueMax = novoProdutoRequest.getEstoqueMax();
-                Double precoCompra = novoProdutoRequest.getPrecoCompra();
-                Double precoVenda = novoProdutoRequest.getPrecoVenda();
+            Integer estoque = novoProdutoRequest.getEstoque();
+            Integer estoqueMin = novoProdutoRequest.getEstoqueMin();
+            Integer estoqueMax = novoProdutoRequest.getEstoqueMax();
+            Double precoCompra = novoProdutoRequest.getPrecoCompra();
+            Double precoVenda = novoProdutoRequest.getPrecoVenda();
 
-                produtoRepository.atualizarProduto(
-                        estoque,
-                        estoqueMin,
-                        estoqueMax,
-                        precoCompra,
-                        precoVenda,
-                        codigo,
-                        idEmpresa);
+            produtoRepository.atualizarProduto(
+                    estoque,
+                    estoqueMin,
+                    estoqueMax,
+                    precoCompra,
+                    precoVenda,
+                    codigo,
+                    idEmpresa);
 
-                return status(HttpStatus.OK).build();
-            }
+            return status(HttpStatus.OK).build();
         }
+
 
         return status(HttpStatus.NOT_FOUND).build();
     }

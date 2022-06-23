@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 
 @Entity
+@Table(name = "carrinho")
 public class Carrinho {
 
     @Id

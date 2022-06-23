@@ -22,4 +22,5 @@ public class ProdutoVenderRequest {
     public Integer getEstoqueInicial() {
         return estoqueInicial;
     }
+
 }

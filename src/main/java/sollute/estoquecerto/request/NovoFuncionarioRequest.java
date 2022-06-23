@@ -22,4 +22,5 @@ public class NovoFuncionarioRequest {
     public Double getSalario() {
         return salario;
     }
+
 }
